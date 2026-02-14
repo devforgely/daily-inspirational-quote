@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspirational Message Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Daily Inspiration</h1>
+        
+        <div class="quote-box">
+            <p id="message">Loading inspiration...</p>
+        </div>
+
+        <button class="btn" id="generateBtn" onclick="generateMessage()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            New Quote
+        </button>
+    </div>
+
+    <script src="quotes.js"></script>
+    <script>
+        // last shown index to avoid repeats
+        let lastShownIndex = -1;
+
+        // Function to generate a random message (never the same as the previous one)
+        function generateMessage() {
+            const messageElement = document.getElementById('message');
+            if (messages.length === 0) return;
+
+            messageElement.classList.add('fade-out');
+
+            setTimeout(() => {
+                let randomIndex;
+                if (messages.length === 1) {
+                    randomIndex = 0;
+                } else {
+                    do {
+                        randomIndex = Math.floor(Math.random() * messages.length);
+                    } while (randomIndex === lastShownIndex);
+                }
+                lastShownIndex = randomIndex;
+                messageElement.textContent = messages[randomIndex];
+                messageElement.classList.remove('fade-out');
+            }, 300);
+        }
+    </script>
+</body>
+</html>

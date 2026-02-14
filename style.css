@@ -1,0 +1,136 @@
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-gradient-start: #e0c3fc;
+    --bg-gradient-end: #8ec5fc;
+    --text-color: #1f2937;
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(120deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    padding: 20px;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.quote-box {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Decorative quotes */
+.quote-box::before,
+.quote-box::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.2;
+    position: absolute;
+    font-family: serif;
+}
+
+.quote-box::before {
+    top: -20px;
+    left: 0;
+}
+
+.quote-box::after {
+    bottom: -40px;
+    right: 0;
+}
+
+#message {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #4b5563;
+    font-style: italic;
+    transition: opacity 0.3s ease;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.5);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Fade animation class */
+.fade-out {
+    opacity: 0;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 2rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #message {
+        font-size: 1.1rem;
+    }
+}
