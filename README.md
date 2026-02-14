@@ -2,6 +2,8 @@
 
 A simple, elegant web app that displays a random inspirational quote. Perfect for a quick dose of motivation—open the page, read the quote, and tap **New Quote** for another.
 
+**[Live Demo](https://devforgely.github.io/daily-inspirational-quote/)**
+
 ## Features
 
 - **Curated quotes** — Dozens of short, memorable quotes about success, courage, and growth
